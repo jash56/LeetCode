@@ -1,13 +1,10 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        
-        hash_map = {}
-        
-        for index, ele in enumerate(nums):
-            hash_map[ele] = index
-
-        for index, i in enumerate(nums):
-            comp = target - i
-            if comp in hash_map and index != hash_map[comp]:
-                return [hash_map[comp], index]
-            
+        hashmap = {}
+        for i in range(len(nums)):
+            hashmap[nums[i]] = i
+        print(hashmap)
+        for i in range(len(nums)):
+            complement = target - nums[i]
+            if complement in hashmap and hashmap[complement] != i:
+                return [i, hashmap[complement]] 
