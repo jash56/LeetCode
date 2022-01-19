@@ -10,7 +10,7 @@ class Solution:
             if k >= n or (j < m and nums1_copy[j] < nums2[k]):
                 nums1[i] = nums1_copy[j]
                 j += 1
-            elif k < n:
+            else:
                 nums1[i] = nums2[k]
                 k += 1
         
