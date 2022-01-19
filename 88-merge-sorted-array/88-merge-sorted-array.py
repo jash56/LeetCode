@@ -3,16 +3,17 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-
-        nums1_copy = nums1[:m]
-        j = k = 0
-        for i in range(n + m):
-            if k >= n or (j < m and nums1_copy[j] < nums2[k]):
-                nums1[i] = nums1_copy[j]
-                j += 1
+        j = m - 1
+        k = n - 1
+        for i in range(n + m - 1, -1, -1):
+            if k < 0 or (j >= 0 and nums1[j] > nums2[k]):
+                nums1[i] = nums1[j]
+                j -= 1
+                
             else:
                 nums1[i] = nums2[k]
-                k += 1
+                k -= 1
+            
         
             
                 
