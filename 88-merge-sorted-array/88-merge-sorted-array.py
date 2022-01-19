@@ -6,7 +6,9 @@ class Solution:
         j = m - 1
         k = n - 1
         for i in range(n + m - 1, -1, -1):
-            if k < 0 or (j >= 0 and nums1[j] > nums2[k]):
+            if k < 0:
+                break
+            if j >= 0 and nums1[j] > nums2[k]:
                 nums1[i] = nums1[j]
                 j -= 1
                 
