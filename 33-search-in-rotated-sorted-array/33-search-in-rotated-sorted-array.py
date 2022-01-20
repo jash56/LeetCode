@@ -51,4 +51,4 @@ class Solution:
             # search on the right side
             return search(rotate_index, n - 1)
         # search on the left side
-        return search(0, rotate_index)
+        return search(0, rotate_index - 1)
