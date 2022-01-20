@@ -7,7 +7,6 @@ class Solution:
             while left <= right:
                 mid = (left+right)//2
                 if num_list[mid] > num_list[mid + 1]:
-                    print(mid)
                     return mid + 1
                 elif num_list[mid] < num_list[left]:
                     right = mid
@@ -22,8 +21,6 @@ class Solution:
                 start = get_min(nums)
             else:
                 end = get_min(nums)
-                print(end)
-            print(start, end)
           
         while end >= start:
             mid = (end+start) // 2
