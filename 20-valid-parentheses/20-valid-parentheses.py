@@ -1,20 +1,18 @@
-class Solution:
-    def isValid(self, s: str) -> bool:
-        
-        stack = ['#']
-        
-        for i in s:
-            if i =='(' or i =='[' or i =='{':
-                stack.append(i)
-            elif (i == ')' and stack[-1] == '(') or (i == ']' and stack[-1] == '[') or (i == '}' and stack[-1] == '{'):
-                stack.pop(-1)
-            else:
-                return False
-        
-        if stack[-1] == '#': return True
-        else: return False
-                
-            
-            
-            
-                
+class Solution(object):
+    def isValid(self, s):
+
+        stack = []
+        mapping = {")": "(", "}": "{", "]": "["}
+
+        for char in s:
+            if char in mapping:
+                if stack:
+                    top_element = stack.pop()
+                else: return False
+
+                if mapping[char] != top_element:
+                    return False
+            else:  
+                stack.append(char)
+
+        return not stack
