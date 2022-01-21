@@ -11,8 +11,10 @@ class Solution:
             
             if nums[mid+1] < nums[mid]:
                 return nums[mid+1]
+            if nums[mid] < nums[mid-1]:
+                return nums[mid]
             
             if nums[end] < nums[mid]:
-                start = mid
+                start = mid + 1
             else:
-                end = mid
+                end = mid - 1
