@@ -6,7 +6,6 @@ class Solution:
         count_list = list(counter.items())
         count_list.sort(key=lambda x: x[1], reverse=True)
 
-        ans = []
-        for i in count_list[:k]:
-            ans.append(i[0])
-        return ans
+        for i in range(k):
+            count_list[i] = count_list[i][0]
+        return count_list[:k]
