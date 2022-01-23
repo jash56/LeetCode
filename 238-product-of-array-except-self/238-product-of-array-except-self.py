@@ -5,6 +5,8 @@ class Solution:
         for i in range(1, n):
             prefix[i] = prefix[i-1] * nums[i-1]
             postfix[n-i-1] = postfix[n-i] * nums[n-i]
+        answer = [0] * n
+        for i in range(n):
+            answer[i] = prefix[i] * postfix[i]
         
-        answer = [i*j for i, j in zip(prefix, postfix)]
         return answer
