@@ -1,11 +1,16 @@
+import heapq
+
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         
         counter = collections.Counter(nums)
+        print(counter)
+        count_list = [(-freq, -key) for key, freq in list(counter.items())]
         
-        count_list = list(counter.items())
-        count_list.sort(key=lambda x: x[1], reverse=True)
-
+        heapq.heapify(count_list)
+        print(count_list)
+        answer = []
         for i in range(k):
-            count_list[i] = count_list[i][0]
-        return count_list[:k]
+            answer.append(-heapq.heappop(count_list)[1])
+            print(answer)
+        return answer
