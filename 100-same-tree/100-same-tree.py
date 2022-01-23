@@ -5,31 +5,34 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    def is_match(self, p, q):
+        if p and q:
+            if p.val == q.val:
+                return True
+            else: 
+                return False
+        elif not p and not q:
+            return True
+        
+        return False
+            
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         if not p and not q: return True
         
         elif p and q:
-            queue_p, queue_q = [p], [q]
-            while queue_p and queue_q:
-                temp_p = queue_p.pop(0)
-                temp_q = queue_q.pop(0)
-                if (temp_p.val != temp_q.val):
+            queue = [(p, q)]
+            while queue:
+                p_curr, q_curr = queue.pop(0)
+                if not self.is_match(p_curr, q_curr):
                     return False
-                else:
-                    if temp_p.left and temp_q.left:
-                        queue_p.append(temp_p.left)
-                        queue_q.append(temp_q.left)
-                    elif (not temp_p.left and temp_q.left) or ( temp_p.left and not temp_q.left):
-                        return False
+                if p_curr:
+                    queue.append((p_curr.left, q_curr.left))
+                    queue.append((p_curr.right, q_curr.right))
                     
-                    if temp_p.right and temp_q.right:
-                        queue_p.append(temp_p.right)
-                        queue_q.append(temp_q.right)
-                    elif (not temp_p.right and temp_q.right) or ( temp_p.right and not temp_q.right):
-                        return False
             return True
             
-        else: return False
+        else:
+            return False
         
         
         
