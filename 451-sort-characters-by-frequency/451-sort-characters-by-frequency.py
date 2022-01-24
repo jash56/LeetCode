@@ -6,7 +6,7 @@ class Solution:
             counter[i] = counter.get(i, 0) + 1
         counter_list = list(counter.items())
         counter_list.sort(key=lambda x: x[1], reverse=True)
+        string_builder = []
         for char, freq in counter_list:
-            substring = [char] * freq
-            ans = ans + ''.join(substring)
-        return ans
+            string_builder.append(char * freq)
+        return ''.join(string_builder)
