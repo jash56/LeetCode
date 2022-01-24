@@ -6,7 +6,9 @@ class Solution:
         
         for end in range(len(s)):            
             if s[end] in char_index:
-                start = max(char_index[s[end]] + 1, start)
+                print(start, 'bef')
+                start = max(start, char_index[s[end]] + 1)
+                print(start, 'aft')
         
             char_index[s[end]] = end
             max_len = max(end - start + 1, max_len)
