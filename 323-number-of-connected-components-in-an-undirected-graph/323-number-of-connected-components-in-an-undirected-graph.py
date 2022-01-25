@@ -1,15 +1,14 @@
 import collections
 class Solution:
+    
     def make_graph(self, edges):
         graph = collections.defaultdict(list)
         for edge in edges:
             graph[edge[0]].append(edge[1])
-            graph[edge[1]].append(edge[0])
-        
+            graph[edge[1]].append(edge[0])   
         return graph
             
-    def bfs(self, graph, start):
-        
+    def bfs(self, graph, start):    
         queue = [start]
         visited = []
         while queue:
@@ -21,15 +20,12 @@ class Solution:
         return visited
             
     def countComponents(self, n: int, edges: List[List[int]]) -> int:
-        
         graph = self.make_graph(edges)
-        print(graph)
         component_count = 0
         visited = set()
         for vertex in range(n):
             if vertex not in visited:
                 visited.update(self.bfs(graph, vertex))
-                print(visited)
                 component_count += 1
         return component_count
         
