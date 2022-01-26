@@ -1,11 +1,15 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
         
-        index_hash = {}
-        for i in range(len(numbers)):
-            index_hash[numbers[i]] = i + 1
+        start, end = 0, len(numbers) - 1
+        
+        while start < end:
             
-        for i in range(len(numbers)):
-            complement = target - numbers[i]
-            if complement in index_hash:
-                return [i+1, index_hash[complement]]
+            summation = numbers[start] + numbers[end]
+            if summation == target:
+                return [start+1, end+1]
+            elif summation > target:
+                end -= 1
+            else:
+                start += 1
+            
