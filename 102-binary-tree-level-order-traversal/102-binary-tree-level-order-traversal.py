@@ -5,7 +5,40 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root: return []
+        queue = [root]
+        ans = []
+        while queue:
+            temp = []
+            for i in range(len(queue)):
+                curr = queue.pop(0)
+                temp.append(curr.val)
+                if curr.left:
+                    queue.append(curr.left)
+                if curr.right:
+                    queue.append(curr.right)
+            ans.append(temp)
+        return ans
+                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
         
         if not root: return []
         
