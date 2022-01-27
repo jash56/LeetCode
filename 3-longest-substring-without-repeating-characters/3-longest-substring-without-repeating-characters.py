@@ -7,13 +7,10 @@ class Solution:
         longest_len = start = 0
 
         for end in range(len(s)):
-            print(start, end, longest_len)
-            
             if s[end] in index_map:
                 longest_len = max(end - start, longest_len)
                 start = max(start, index_map[s[end]] + 1)
-            index_map[s[end]] = end
-        print(start, end, longest_len)        
+            index_map[s[end]] = end  
         return max(end - start + 1, longest_len)
 
         
