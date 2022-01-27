@@ -1,13 +1,25 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        res, dups = set(), set()
-        seen = {}
-        for i, val1 in enumerate(nums):
-            if val1 not in dups:
-                dups.add(val1)
-                for j, val2 in enumerate(nums[i+1:]):
-                    complement = -val1 - val2
-                    if complement in seen and seen[complement] == i:
-                        res.add(tuple(sorted((val1, val2, complement))))
-                    seen[val2] = i
-        return res
+        
+        nums.sort()
+        ans = set()
+        for i in range(len(nums)):
+            if nums[i] <= 0:
+                start, end = i+1, len(nums)-1
+                while start < end:
+                    temp = nums[start] + nums[end] + nums[i]
+                    if temp == 0:
+                        ans.add((nums[i], nums[start], nums[end]))
+                        
+                        end -= 1
+                        while start < end and nums[start] == nums[start+1]:
+                            start += 1
+                            
+                            
+                    elif temp > 0:
+                        end -= 1
+                    else:
+                        start += 1
+            
+        return [list(x) for x in ans]
+                    
