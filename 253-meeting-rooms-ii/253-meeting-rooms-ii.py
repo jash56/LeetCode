@@ -6,7 +6,6 @@ class Solution:
         
         in_use = []
         heapq.heappush(in_use, intervals[0][1])
-        room_count = 1
         
         for interval in intervals[1:]:
             if interval[0] >= in_use[0]:
@@ -14,6 +13,5 @@ class Solution:
                 heapq.heappush(in_use, interval[1])
             else:
                 heapq.heappush(in_use, interval[1])
-                room_count += 1
                 
-        return room_count
+        return len(in_use)
