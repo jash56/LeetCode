@@ -11,7 +11,7 @@ class Solution:
         stack = [(root, [root.val])]
         ans = []
         while stack:
-            curr, curr_path = stack.pop(0)
+            curr, curr_path = stack.pop(-1)
             if not curr.left and not curr.right and sum(curr_path) == targetSum:
                 ans.append(curr_path)          
             if curr.left: 
