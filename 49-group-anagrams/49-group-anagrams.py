@@ -11,35 +11,4 @@ class Solution:
             anagram_match[tuple(string_freq)].append(string)
 
         return anagram_match.values()
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-#         hashmap = defaultdict(list)
-#         for word in strs:
-#             temp = [0] * 26
-#             count_dict = Counter(word)
-#             for key, val in count_dict.items():
-#                 temp[ord(key)-ord('a')] = val
-            
-#             hashmap[tuple(temp)].append(word)
-#         return hashmap.values()
             
