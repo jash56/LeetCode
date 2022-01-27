@@ -4,7 +4,8 @@ class Solution:
         
         intervals.sort(key=lambda x: x[0])
         
-        in_use = [intervals[0][1]]
+        in_use = []
+        heapq.heappush(in_use, intervals[0][1])
         room_count = 1
         
         for interval in intervals[1:]:
