@@ -3,16 +3,14 @@ class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         
         anagram_match = collections.defaultdict(list)       
-        ans = []
+
         for string in strs:
             string_freq = [0] * 26
             for char in string:
                 string_freq[ord(char)-ord('a')] += 1 
             anagram_match[tuple(string_freq)].append(string)
-        
-        for group in anagram_match.values():
-            ans.append(list(group))
-        return ans
+
+        return anagram_match.values()
         
         
         
