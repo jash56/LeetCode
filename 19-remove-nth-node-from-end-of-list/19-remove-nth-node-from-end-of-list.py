@@ -17,32 +17,3 @@ class Solution:
         
         ptr2.next = ptr2.next.next
         return dummy.next
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        i = 0
-        while i < n:
-            i += 1
-            ptr1 = ptr1.next
-            print(i, ptr1)
-
-        while ptr1.next:
-            ptr1 = ptr1.next
-            ptr2 = ptr2.next
-
-        ptr2.next = ptr2.next.next
-        return head
