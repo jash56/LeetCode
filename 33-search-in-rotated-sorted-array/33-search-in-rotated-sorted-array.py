@@ -1,17 +1,51 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         
-        def get_min(num_list):
-            left = 0
-            right = len(num_list) - 1
-            while left <= right:
-                mid = (left+right)//2
-                if num_list[mid] > num_list[mid + 1]:
-                    return mid + 1
-                elif num_list[mid] < num_list[left]:
-                    right = mid
+        
+        def get_min(nums):
+            
+            start, end = 0, len(nums)-1
+            
+            while start < end:
+                mid = (start+end)//2
+                if nums[mid] > nums[mid+1]:
+                    return mid+1
+                elif nums[mid-1] > nums[mid]:
+                    return mid
+                elif nums[mid] > nums[end]:
+                    start = mid + 1
                 else:
-                    left = mid         
+                    end = mid - 1
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+#         def get_min(num_list):
+#             left = 0
+#             right = len(num_list) - 1
+#             while left <= right:
+#                 mid = (left+right)//2
+#                 if num_list[mid] > num_list[mid + 1]:
+#                     return mid + 1
+#                 elif num_list[mid] < num_list[left]:
+#                     right = mid
+#                 else:
+#                     left = mid         
                 
         start, end = 0, len(nums) - 1
         if nums[0] > nums[-1]:
@@ -21,7 +55,7 @@ class Solution:
                 start = get_min(nums)
             else:
                 end = get_min(nums)
-          
+                
         while end >= start:
             mid = (end+start) // 2
             if nums[mid] == target:
