@@ -8,6 +8,32 @@ class Solution:
         dummy = ListNode(next = head)
         ptr1 = ptr2 = dummy
 
+        for i in range(n):
+            ptr1 = ptr1.next
+            
+        while ptr1.next:
+            ptr1 = ptr1.next
+            ptr2 = ptr2.next
+        
+        ptr2.next = ptr2.next.next
+        return dummy.next
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         i = 0
         while i < n:
             i += 1
@@ -19,4 +45,4 @@ class Solution:
             ptr2 = ptr2.next
 
         ptr2.next = ptr2.next.next
-        return dummy.next
+        return head
