@@ -12,8 +12,8 @@ class Solution:
                         ans.add((nums[i], nums[start], nums[end]))
                         
                         end -= 1
-                        # while start < end and nums[start] == nums[start+1]:
-                        #     start += 1
+                        while start < end and nums[start] == nums[start+1]:
+                            start += 1
                         while start < end and nums[end] == nums[end+1]:
                             end -= 1
                             
