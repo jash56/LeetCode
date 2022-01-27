@@ -12,10 +12,8 @@ class Solution:
         ans = []
         while stack:
             curr, curr_path = stack.pop(0)
-            print(curr.val)
             if not curr.left and not curr.right and sum(curr_path) == targetSum:
-                ans.append(curr_path)
-                
+                ans.append(curr_path)          
             if curr.left: 
                 stack.append((curr.left, curr_path + [curr.left.val]))
             if curr.right:     
