@@ -3,11 +3,8 @@ class Solution:
         
         max_profit = 0
         mini = prices[0]
-        
         for i in prices:
-            
             max_profit = max(max_profit, i - mini)
-            
             mini = min(mini, i)
         return max_profit
             
