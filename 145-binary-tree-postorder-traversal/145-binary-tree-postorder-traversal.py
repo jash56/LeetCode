@@ -7,9 +7,9 @@
 class Solution:
     def post(self, root, ans):
         if not root:
-            return None
-        self.post(root.left, ans)
-        self.post(root.right, ans)
+            return ans
+        ans = self.post(root.left, ans)
+        ans = self.post(root.right, ans)
         ans.append(root.val)
         return ans
     
