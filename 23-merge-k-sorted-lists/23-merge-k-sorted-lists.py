@@ -29,11 +29,19 @@ class Solution:
         return temp.next
     
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        
         if not lists: return
-        ans = lists[0]
-        for i in range(1, len(lists)):
-            ans = self.merge_two_lists(ans, lists[i])
-        return ans
+        
+        ans = lists
+        while len(ans) != 1:
+            n = len(ans)
+            merged = []
+            for i in range(0, n-1, 2):
+                lst1 = ans.pop(0)
+                lst2 = ans.pop(0)
+                merged.append(self.merge_two_lists(lst1, lst2))
+            ans = ans + merged
+        return ans[0]
         
         
         
