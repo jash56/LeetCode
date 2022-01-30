@@ -9,10 +9,11 @@ class Solution:
     def invert(self, root):
         if not root:
             return None
-        root.left = self.invert(root.left)
-        root.right = self.invert(root.right)
         root.left, root.right = root.right, root.left
-        return root
+        self.invert(root.left)
+        self.invert(root.right)
+        
+        
         
         
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
@@ -27,4 +28,5 @@ class Solution:
         #         queue.append(curr.right)
         #     curr.left, curr.right = curr.right, curr.left
         # return root
-        return self.invert(root)
+        self.invert(root)
+        return root
