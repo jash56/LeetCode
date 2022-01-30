@@ -11,7 +11,6 @@ class Solution:
         if not root: return False
         
         if min(p.val, q.val) <= root.val <= max(p.val, q.val):
-            print(root.val)
             return root
         elif p.val > root.val:
             return self.lowestCommonAncestor(root.right, p, q)
