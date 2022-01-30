@@ -6,13 +6,22 @@
 #         self.right = None
 
 class Solution:
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+    def dfs(self, root, low, high):
         
         if not root: return False
         
-        if min(p.val, q.val) <= root.val <= max(p.val, q.val):
+        if low <= root.val <= high:
             return root
-        elif p.val > root.val:
-            return self.lowestCommonAncestor(root.right, p, q)
+        elif low > root.val:
+            return self.dfs(root.right, low, high)
         else:
-            return self.lowestCommonAncestor(root.left, p, q)
+            return self.dfs(root.left, low, high)
+        
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        
+        if p.val > q.val:
+            p, q = q, p
+        
+        return self.dfs(root, p.val, q.val)
+        
+    
