@@ -9,12 +9,10 @@ class Solution:
     def invert(self, root):
         if not root:
             return None
-        root.left, root.right = root.right, root.left
         self.invert(root.left)
         self.invert(root.right)
-        
-        
-        
+        root.left, root.right = root.right, root.left
+                
         
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         
