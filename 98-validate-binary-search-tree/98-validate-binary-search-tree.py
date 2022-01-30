@@ -10,8 +10,8 @@ class Solution:
         if not root: return True      
         if low >= root.val or root.val >= high:
             return False       
-        # if not root.left and not root.right:
-        #     return True 
+        if not root.left and not root.right:
+            return True 
         return self.dfs(root.left, low, root.val) and self.dfs(root.right, root.val, high)
             
         
