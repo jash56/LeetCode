@@ -20,10 +20,10 @@ class Solution:
         self.dfs(root, path_list, current_path)
         ans = 0
         for path in path_list:
-            temp = ''
+            temp = 0
             for i in path:
-                temp += str(i)
-            ans += int(temp)
+                temp = 10*temp + int(i)
+            ans += temp
         return ans
         
     
