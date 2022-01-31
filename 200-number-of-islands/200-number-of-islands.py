@@ -12,7 +12,7 @@ class Solution:
         return ans
         
     def explore_island(self, curr, grid):       
-        if not curr: return  
+
         grid[curr[0]][curr[1]] = '0'
         for neighbor in self.get_neighbors(curr, grid):
             self.explore_island(neighbor, grid)
