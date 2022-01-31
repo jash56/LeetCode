@@ -1,10 +1,8 @@
 class Solution:
     
     def cycle(self, graph, root, visited):
-        # if not root: return False
-        print(root)
-        if root in visited:
-            print('caught', root)
+        
+        if root in visited:      
             return True
         visited.add(root)
         for neighbor in graph[root]:
