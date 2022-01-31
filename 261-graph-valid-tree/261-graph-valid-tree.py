@@ -13,6 +13,7 @@ class Solution:
                
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
         
+        if len(edges) != n-1: return False
         graph = collections.defaultdict(list)
         for edge in edges:
             graph[edge[0]].append(edge[1])
