@@ -1,19 +1,15 @@
 class Solution:
     def make_graph(self, prerequisites):
-        graph = {}
+        graph = collections.defaultdict(list)
         for edge in prerequisites:
-            if edge[1] in graph:
-                graph[edge[1]].append(edge[0])
-            else:
-                graph[edge[1]] = [edge[0]]
+            graph[edge[1]].append(edge[0])
         return graph
     
     def is_cycle(self, graph, start, visited, checked):
         if start not in graph:
             return False        
         if start in checked:
-            return False
-        
+            return False      
         if start in visited:
             return True   
         visited.add(start)
