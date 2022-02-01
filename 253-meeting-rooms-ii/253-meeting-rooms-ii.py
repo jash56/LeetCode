@@ -10,8 +10,6 @@ class Solution:
         for interval in intervals[1:]:
             if interval[0] >= in_use[0]:
                 heapq.heappop(in_use)
-                heapq.heappush(in_use, interval[1])
-            else:
-                heapq.heappush(in_use, interval[1])
+            heapq.heappush(in_use, interval[1])
                 
         return len(in_use)
