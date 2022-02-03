@@ -1,19 +1,28 @@
 class Solution:
                 
     def rob(self, nums: List[int]) -> int:
-        
+
+        #optimized tabular dp/bottom-up
         if len(nums) <= 2: return max(nums)
         
-        dp = [None] * (len(nums)+1)
-        dp[-1], dp[-2] = 0, nums[-1]
-        for i in range(len(nums)-2, -1, -1):
-            # print(dp, i)
-            dp[i] =  max(dp[i+2] + nums[i], dp[i+1])
-            
+        dp_first, dp_second = nums[-1], 0
         
-        return dp[0]
-    
-    
+        for i in range(len(nums)-2, -1, -1):
+            curr =  max(dp_second + nums[i], dp_first)    
+            dp_first, dp_second = curr, dp_first
+            
+        return curr
+        
+        
+#         #tabular dp/bottom-up
+#         if len(nums) <= 2: return max(nums)
+        
+#         dp = [None] * (len(nums)+1)
+#         dp[-1], dp[-2] = 0, nums[-1]
+#         for i in range(len(nums)-2, -1, -1):
+#             dp[i] =  max(dp[i+2] + nums[i], dp[i+1])       
+#         return dp[0]
+       
     
 #memoization
 #     def rob_skip(self, nums, curr, memo):
