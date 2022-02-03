@@ -10,10 +10,11 @@ class Solution:
                     modify_row.add(row)
                     modify_col.add(col)
         
-        for row in modify_row:
-            for col in range(len(matrix[0])):
-                matrix[row][col] = 0
-                
         for row in range(len(matrix)):
-            for col in modify_col:
-                matrix[row][col] = 0 
+            for col in range(len(matrix[0])):
+                if row in modify_row or col in modify_col:
+                    matrix[row][col] = 0 
+                
+        
+            
+                
