@@ -4,20 +4,19 @@ class Solution:
         
         if obstacleGrid[-1][-1] == 1: return 0
         else: obstacleGrid[-1][-1] = 1
+            
         num_row, num_col = len(obstacleGrid), len(obstacleGrid[0])
-        
         val = 1
         for row in range(num_row-2, -1, -1):
             if obstacleGrid[row][num_col-1] == 1:
                 val = 0
-            obstacleGrid[row][num_col-1] = val
-        print(obstacleGrid)
+            obstacleGrid[row][num_col-1] = val    
         val = 1
         for col in range(num_col-2, -1, -1):
             if obstacleGrid[num_row-1][col] == 1:
                 val = 0
             obstacleGrid[num_row-1][col] = val
-        print(obstacleGrid)
+        
         for row in range(num_row-2, -1, -1):
             for col in range(num_col-2, -1, -1):
                 if obstacleGrid[row][col] == 1:
