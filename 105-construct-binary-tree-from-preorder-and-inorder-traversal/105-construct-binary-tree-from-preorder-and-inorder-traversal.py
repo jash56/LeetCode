@@ -4,20 +4,16 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution:
-    def __init__(self):
-        self.preorder_idx = 0
+class Solution:  
         
     def rec(self, subtree_inorder_start, subtree_inorder_end, preorder, inorder_index_map):
         
         if subtree_inorder_start > subtree_inorder_end:
-            return
+            return        
         
-        root = TreeNode(val=preorder[self.preorder_idx])
-        self.preorder_idx += 1
+        root = TreeNode(val=preorder.pop(0))    
         root.left = self.rec(subtree_inorder_start, inorder_index_map[root.val]-1, preorder, inorder_index_map)
-        root.right = self.rec(inorder_index_map[root.val]+1, subtree_inorder_end, preorder, inorder_index_map)
-        
+        root.right = self.rec(inorder_index_map[root.val]+1, subtree_inorder_end, preorder, inorder_index_map)       
         return root
         
         
