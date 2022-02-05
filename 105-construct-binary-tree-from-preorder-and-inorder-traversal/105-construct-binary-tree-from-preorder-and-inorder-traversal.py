@@ -18,12 +18,10 @@ class Solution:
         
         
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
-        
-        count = 0
+                
         inorder_index_map = {} 
-        for i in inorder:            
-            inorder_index_map[i] = count
-            count += 1
+        for idx, val in enumerate(inorder):            
+            inorder_index_map[val] = idx
                   
         return self.rec(0, len(inorder)-1, preorder, inorder_index_map)
             
