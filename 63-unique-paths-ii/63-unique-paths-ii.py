@@ -2,30 +2,30 @@ class Solution:
  
     def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
         
+        if obstacleGrid[-1][-1] == 1: return 0
+        else: obstacleGrid[-1][-1] = 1
         num_row, num_col = len(obstacleGrid), len(obstacleGrid[0])
         
-        grid = [[1] * num_col for _ in range(num_row)]
-        
         val = 1
-        for row in range(num_row-1, -1, -1):
+        for row in range(num_row-2, -1, -1):
             if obstacleGrid[row][num_col-1] == 1:
                 val = 0
-            grid[row][num_col-1] = val
-        
+            obstacleGrid[row][num_col-1] = val
+        print(obstacleGrid)
         val = 1
-        for col in range(num_col-1, -1, -1):
+        for col in range(num_col-2, -1, -1):
             if obstacleGrid[num_row-1][col] == 1:
                 val = 0
-            grid[num_row-1][col] = val
-        
+            obstacleGrid[num_row-1][col] = val
+        print(obstacleGrid)
         for row in range(num_row-2, -1, -1):
             for col in range(num_col-2, -1, -1):
                 if obstacleGrid[row][col] == 1:
-                    grid[row][col] = 0
+                    obstacleGrid[row][col] = 0
                 else:
-                    grid[row][col] = grid[row+1][col] + grid[row][col+1]
+                    obstacleGrid[row][col] = obstacleGrid[row+1][col] + obstacleGrid[row][col+1]
         
-        return grid[0][0]
+        return obstacleGrid[0][0]
             
         
 
