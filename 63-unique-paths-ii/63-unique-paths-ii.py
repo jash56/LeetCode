@@ -3,10 +3,8 @@ class Solution:
     def path_count(self, robot_row, robot_col, m, n, grid, memo):
         
         if robot_row == m-1 and robot_col == n-1:
-
-                return 1
-            
-        
+            return 1
+                    
         if (robot_row, robot_col) in memo:
             return memo[robot_row, robot_col]
         
@@ -24,10 +22,10 @@ class Solution:
         return memo[robot_row, robot_col]
         
     def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
+        
         if obstacleGrid[0][0] == 1:
             return 0
-        m = len(obstacleGrid)
-        n = len(obstacleGrid[0])
-        memo = {}
         
-        return self.path_count(0, 0, m, n, obstacleGrid, memo)
+        m = len(obstacleGrid)
+        n = len(obstacleGrid[0])        
+        return self.path_count(0, 0, m, n, obstacleGrid, {})
