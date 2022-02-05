@@ -6,16 +6,12 @@
 #         self.right = right
 class Solution:
     
-    def __init__(self):
-        self.count = 0
-    
     def rec(self, left, right, postorder, inorder_map):
         
         if left > right:
             return
         
-        node_val = postorder[self.count]
-        self.count -= 1
+        node_val = postorder.pop()
         node = TreeNode(val=node_val)
         node_inorder_idx = inorder_map[node_val]
         node.right = self.rec(node_inorder_idx+1, right, postorder, inorder_map)
@@ -30,7 +26,6 @@ class Solution:
         inorder_map = {}
         for idx, val in enumerate(inorder):
             inorder_map[val] = idx
-        self.count = len(inorder)-1  
         
         return self.rec(left, right, postorder, inorder_map)
         
