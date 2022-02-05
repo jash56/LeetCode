@@ -1,19 +1,19 @@
 class Solution:
     
     def path_count(self, robot_row, robot_col, m, n, grid, memo):
-        
+        # if target reached
         if robot_row == m-1 and robot_col == n-1:
             return 1
-                    
+        # if count to target present            
         if (robot_row, robot_col) in memo:
             return memo[robot_row, robot_col]
-        
+    
         down = right = 0
-        
+        #move down
         if robot_row+1 <= m-1 and grid[robot_row+1][robot_col] == 0:
             down = self.path_count(robot_row+1, robot_col, m, n, grid, memo)
-            memo[robot_row+1, robot_col] = down
-            
+            memo[robot_row+1, robot_col] = down        
+        #move right
         if robot_col+1 <= n-1 and grid[robot_row][robot_col+1] == 0:
             right = self.path_count(robot_row, robot_col+1, m, n, grid, memo)
             memo[robot_row, robot_col+1] = right
