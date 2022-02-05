@@ -3,10 +3,9 @@ class Solution:
     def path_count(self, robot_row, robot_col, m, n, grid, memo):
         
         if robot_row == m-1 and robot_col == n-1:
-            if grid[robot_row][robot_col] == 0:       
+
                 return 1
-            else:
-                return 0
+            
         
         if (robot_row, robot_col) in memo:
             return memo[robot_row, robot_col]
