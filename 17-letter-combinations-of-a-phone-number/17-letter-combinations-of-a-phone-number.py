@@ -1,18 +1,12 @@
 class Solution:
     
     def rec(self, digits, mapping, curr_path, ans):
-        if len(digits) == 1:
-            for i in mapping[int(digits[0])]:
-                ans.append(curr_path + i)
+        if not digits:
+            ans.append(curr_path)
             return
                 
         for i in mapping[int(digits[0])]:  
-            self.rec(digits[1:], mapping, curr_path + i, ans)
-        
-                
-        
-        
-        
+            self.rec(digits[1:], mapping, curr_path + i, ans)               
     def letterCombinations(self, digits: str) -> List[str]:
         if not digits: return
         ans = []
