@@ -12,9 +12,9 @@ class Solution:
             return
         path.append(root)
         
-        if root.val == p.val:           
+        if root == p:           
             found.append(list(path))     
-        elif root.val == q.val:
+        elif root == q:
             found.append(list(path))        
         if len(found) == 2:
             return    
