@@ -4,28 +4,29 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+import collections
 class Solution:
     
-    def isSame(self, root1, root2):    
+    def is_same(self, root1, root2):
         
-        if not root1 and not root2:
-            return True
-        elif not root1 or not root2:
-            return False
-        elif root1 and root2:
-            if root1.val == root2.val:
-                return self.isSame(root1.left, root2.left) and self.isSame(root1.right, root2.right)
+        if not root1 and not root2: return True
+        
+        if root1 and root2:
             
+            if root1.val == root2.val:
+                return self.is_same(root1.left, root2.left) and self.is_same(root1.right, root2.right)
+            
+        else: return False
+    
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         
-        if not subRoot: return True
-        
-        elif root and subRoot:
-            
-            if root.val == subRoot.val and self.isSame(root, subRoot):  
+        stack = collections.deque()
+        stack.append(root)
+        while stack:
+            curr = stack.pop()
+            if self.is_same(curr, subRoot):
                 return True
-            else:
-                return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
-        
-        else: return False
-                
+            elif curr:
+                stack.append(curr.right)
+                stack.append(curr.left)   
+        return False
