@@ -32,14 +32,12 @@ class Codec:
             root = TreeNode(data.pop(0))
             root.left = self.des(data)
             root.right = self.des(data)
-
             return root
     
     def deserialize(self, data: str) -> Optional[TreeNode]:
         """Decodes your encoded data to tree.
         """
         data = data.split(',')
-        print(data)
         return self.des(data)
         
 
