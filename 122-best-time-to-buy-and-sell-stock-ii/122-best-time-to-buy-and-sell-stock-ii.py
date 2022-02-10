@@ -3,8 +3,7 @@ class Solution:
         
         start = prices[0]
         profit = 0
-        for end in prices:
-            
+        for end in prices:            
             if end > start:
                 profit += end - start
             start = end
