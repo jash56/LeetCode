@@ -1,6 +1,5 @@
 class Solution:
     def frequencySort(self, s: str) -> str:
-        ans = ''
         counter = defaultdict(int)
         for i in s:
             counter[i] += 1
