@@ -1,9 +1,9 @@
 class Solution:
     def frequencySort(self, s: str) -> str:
         ans = ''
-        counter = {}
+        counter = defaultdict(int)
         for i in s:
-            counter[i] = counter.get(i, 0) + 1
+            counter[i] += 1
         
         counter = [[val, key] for key, val in counter.items()]
         counter.sort(reverse=True)
