@@ -8,19 +8,39 @@ class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         diameter = 0
         
-        def dfs(root, depth):
+        def dfs(root):
             
             if not root:
-                return depth - 1
+                return 0
             
-            left_depth = dfs(root.left, depth + 1)
-            right_depth = dfs(root.right, depth + 1)
+            left_depth = dfs(root.left)
+            right_depth = dfs(root.right)
             
             nonlocal diameter
-            diameter = max(diameter, (left_depth - depth) + (right_depth - depth))
+            diameter = max(diameter, left_depth + right_depth)
                 
-            return max(left_depth, right_depth)
-            
-        depth = 0
-        dfs(root, depth)
+            return max(left_depth, right_depth) + 1
+        
+        dfs(root)
         return diameter
+    
+ # complex math   
+#     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+#         diameter = 0
+        
+#         def dfs(root, depth):
+            
+#             if not root:
+#                 return depth - 1
+            
+#             left_depth = dfs(root.left, depth + 1)
+#             right_depth = dfs(root.right, depth + 1)
+            
+#             nonlocal diameter
+#             diameter = max(diameter, (left_depth - depth) + (right_depth - depth))
+                
+#             return max(left_depth, right_depth)
+            
+#         depth = 0
+#         dfs(root, depth)
+#         return diameter
