@@ -19,5 +19,5 @@ class Solution:
             
     def wordBreak(self, s: str, wordDict: List[str]) -> bool: 
         memo = {}
-        return self.applepie_two(s, wordDict, memo)
+        return self.applepie_two(s, set(wordDict), memo)
         
