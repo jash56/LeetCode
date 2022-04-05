@@ -6,7 +6,7 @@ object Solution {
         else {
             val ans = Array.ofDim[Int](m, n)
             for (i <- 0 to original.length-1) {
-                println(i/m, i%n, i);
+                // println(i/m, i%n, i);
                 ans(i/n)(i%n) = original(i) }
             ans
         }   
