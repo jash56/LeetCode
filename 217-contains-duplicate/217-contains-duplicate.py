@@ -1,12 +1,14 @@
-from collections import Counter
+from collections import defaultdict
 
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         
-        counter = Counter(nums)
-
-        for i in counter.values():
-            if i > 1:
+        counter = defaultdict(int)
+        for num in nums:
+            if counter[num] == 1:
                 return True
-        return False 
-        # return len(nums) != len(set(nums))
+            counter[num] += 1
+        return False
+        
+        
+        
